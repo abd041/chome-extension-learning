@@ -1,9 +1,13 @@
 {
-    "manifest_version":3,
-    "name":"My first extension",
-    "description":"This is my first chrome extension",
-    "version":"1.0.0",
-    "action":{
-        "default_popup":"popup.html"
-    }
+  "manifest_version": 3,
+  "name": "Website Color Changer",
+  "description": "Change background color of any website",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts":[{
+    "matches":["<all_urls>"],
+    "js":["content.js"]
+  }]
 }
