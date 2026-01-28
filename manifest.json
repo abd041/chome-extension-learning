@@ -1,8 +1,8 @@
 {
-    "manifest_version":"3",
-    "name":"MY first Extension",
-    "description":"My first chrome extension step by step",
-    "version":"1.0",
+    "manifest_version":3,
+    "name":"My first extension",
+    "description":"This is my first chrome extension",
+    "version":"1.0.0",
     "action":{
         "default_popup":"popup.html"
     }

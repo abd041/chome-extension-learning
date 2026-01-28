@@ -1,3 +1,3 @@
-document.getElementById("btn").addEventListener("click" , ()=>{
-    alert("Chrome extension is working")
+document.getElementById("btn").addEventListener("click", ()=>{
+    alert("This is my website")
 })
