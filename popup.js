@@ -1,10 +1,35 @@
-document.getElementById("btn").addEventListener("click", async () => {
-  let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  chrome.scripting.executeScript({
-    target: { tabId: tab.id },
-    func: () => {
-      document.body.style.backgroundColor =
-        "#" + Math.floor(Math.random() * 16777215).toString(16);
-    }
+document.getElementById("countBtn").addEventListener("click", async () => {
+  let [tab] = await chrome.tabs.query({
+    active: true,
+    currentWindow: true
   });
+
+  chrome.scripting.executeScript(
+    {
+      target: { tabId: tab.id },
+      func: getSelectedTextData
+    },
+    (results) => {
+      if (!results || !results[0] || !results[0].result) {
+        document.getElementById("result").innerText = "No text selected";
+        return;
+      }
+
+      const { words, characters } = results[0].result;
+      document.getElementById(
+        "result"
+      ).innerText = `Words: ${words}\nCharacters: ${characters}`;
+    }
+  );
 });
+
+function getSelectedTextData() {
+  const text = window.getSelection().toString().trim();
+
+  if (!text) return null;
+
+  return {
+    words: text.split(/\s+/).length,
+    characters: text.length
+  };
+}
