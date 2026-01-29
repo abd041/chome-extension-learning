@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "Word Counter Extension",
   "description": "Count words from selected text on any website",
-  "version": "1.0",
-    "permissions": ["activeTab", "scripting"],
+  "version": "1.1",
+  "permissions": ["activeTab", "scripting", "storage"],
   "action": {
     "default_popup": "popup.html"
   }
