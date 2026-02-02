@@ -5,8 +5,9 @@
     "manifest_version":3,
     "permissions":[],
     "content_scripts":[{
-        "matches":["<all_urls>"],
-        "js":["content.js"]
+        "matches":["https://en.wikipedia.org/wiki/Main_Page"],
+        "js":["content.js"],
+        "css":["popup.css"]
     }],
     "background":{
       "service_worker":"background.js"
